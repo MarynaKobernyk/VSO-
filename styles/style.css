@@ -38,6 +38,8 @@ dd {
 
 img {
   max-width: 100%;
+  height: auto;
+  aspect-ratio: 0;
 }
 
 ul,
@@ -47,65 +49,49 @@ ol {
 
 a {
   text-decoration: none;
-  color: #01010d;
+  color: #033573;
 }
 
 body {
+  height: 100vh;
   font-family: "DM Sans", "Mulish", sans-serif;
-  max-width: 90rem;
+  min-width: 90rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
 }
 
-header {
-  background: linear-gradient(
+@media (max-width: 767px) {
+  body {
+    max-width: none;
+  }
+}
+
+.main__bg {
+  background-image: linear-gradient(
     180deg,
     rgba(7, 115, 250, 0.7) 0%,
-    #0773fa 80.03%
+    #0773fa 80.3%
   );
   color: #fff;
-  position: relative;
 }
 
-.main__header {
+.header__navigation {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1% 10% 0;
 }
 
-.main__header img {
-  margin-top: 1.25rem;
-  margin-left: 9.6rem auto;
-}
-
-header ul {
+.navigation__list {
   font: normal 1rem/180% "DM Sans";
   text-align: center;
   display: flex;
-  flex-direction: row;
-  margin-top: 1.19rem;
-  margin-left: 7.87rem;
+  align-items: center;
+  gap: 50px;
 }
 
-.main__header li {
-  padding-right: 3rem;
-}
-
-.main__header li:last-child {
-  padding-right: 0;
-}
-
-li > a {
-  color: #fff;
-}
-
-li > a:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border-radius: 0.2rem;
-}
-
-.main__header input {
-  margin-top: 0.875rem;
-  margin-left: 8.375rem;
+button {
   width: 8.4rem;
   font: normal bold 1rem/180% "DM Sans";
   text-align: center;
@@ -116,6 +102,7 @@ li > a:hover {
 }
 
 .hvr-grow-shadow {
+  color: #fff;
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
@@ -136,6 +123,11 @@ li > a:hover {
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+  border-radius: 0.2rem;
+}
+
+.main__vso {
+  position: relative;
 }
 
 .square1 {
@@ -149,13 +141,13 @@ li > a:hover {
 }
 
 .square2 {
-  display: grid;
-  position: absolute;
-  right: 0;
-  margin-top: 15.5rem;
-  margin-right: 11.8rem;
-  width: 3.625rem;
-  height: 4rem;
+  display: block;
+  position: relative;
+  width: 44px;
+  height: 49px;
+  z-index: 50;
+  right: -83%;
+  top: 15.5em;
 }
 
 .square3 {
@@ -203,7 +195,7 @@ li > a:hover {
   transform: matrix(0.92, -0.39, 0.39, 0.92, 0, 0);
   width: 108rem;
   height: 0px;
-  left: -141px;
+  left: -8.813rem;
   top: 42.5rem;
 }
 
@@ -214,7 +206,7 @@ li > a:hover {
   transform: matrix(0.92, -0.39, 0.39, 0.92, 0, 0);
   width: 108rem;
   height: 0px;
-  left: -141px;
+  left: -8.813rem;
   top: 49.5rem;
 }
 
@@ -225,7 +217,7 @@ li > a:hover {
   transform: matrix(-0.92, -0.39, -0.39, 0.92, 0, 0);
   width: 108rem;
   height: 0px;
-  left: -141px;
+  left: -8.813rem;
   top: 79rem;
 }
 
@@ -236,11 +228,11 @@ li > a:hover {
   transform: matrix(-0.92, -0.39, -0.39, 0.92, 0, 0);
   width: 108rem;
   height: 0px;
-  left: -141px;
+  left: -8.813rem;
   top: 85rem;
 }
 
-.main__vso h1 {
+.main__title {
   font: bold 3.2rem/5rem "Mulish";
   font-weight: 900;
   font-size: 51px;
@@ -249,7 +241,7 @@ li > a:hover {
   margin-top: 10.5rem;
 }
 
-.main__vso p {
+.main__text {
   font: normal 1.3rem/1.75rem "Mulish";
   text-align: center;
   letter-spacing: -0.2px;
@@ -374,6 +366,7 @@ li > a:hover {
 }
 
 .comment {
+  text-align: center;
   padding-top: 8.8rem;
   font: normal 1.125rem/1.75rem "Mulish";
   letter-spacing: -0.025rem;
@@ -381,6 +374,8 @@ li > a:hover {
 
 .to__add {
   background-color: #0773fa;
+  background-position: center;
+  background-size: cover;
   color: #fff;
   position: relative;
 }
@@ -627,6 +622,10 @@ footer {
   font-size: 1.2rem;
 }
 
+input::placeholder {
+  color: #fff;
+}
+
 .input-group-btn:hover,
 .input-group-btn:focus {
   background-color: #064ca7;
@@ -659,7 +658,7 @@ footer {
 }
 
 .footer__list2 {
-  margin-right: 20.7rem;
+  padding-right: 20.7rem;
 }
 
 .author {
